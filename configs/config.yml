@@ -1,0 +1,2 @@
+port: "8080"
+connectionRow: "postgres://postgres:22334455@localhost:5432/ipk?sslmode=disable"

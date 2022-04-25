@@ -1,0 +1,45 @@
+var testId int
+	queryTest := "insert into test(name) values($1) returning id"
+	row := t.db.QueryRow(queryTest, test.Name)
+	if err := row.Scan(&testId); err != nil {
+		return 0, err
+	}
+	for _, v := range test.Blocks {
+		km := query{"testBlocks", "test_id", "block_id", testId}
+		blockId, err := t.insert("block", "name", v.Name, km)
+		if err != nil {
+			return 0, err
+		}
+		//var blockID int
+		//queryBlock := "insert into block(name) values($1) returning id"
+		//row = t.db.QueryRow(queryBlock, v.Name)
+		//if err := row.Scan(&blockID); err != nil {
+		//	return 0, err
+		//}
+		//row = t.db.QueryRow("insert into testBlocks(test_id, block_id) values($1, $2)", testId, blockID)
+		for _, val := range v.Questions {
+
+			qm := query{"blockQuestions", "block_id", "question_id", blockId}
+			questionId, err := t.insert("question", "test", val.Text, qm)
+			if err != nil {
+				return 0, err
+			}
+			//var questionId int
+			//queryQuestion := "insert into question(text) values($1) returning id"
+			//row = t.db.QueryRow(queryQuestion, val.Text)
+			//if err := row.Scan(&questionId); err != nil {
+			//	return 0, err
+			//}
+			//row = t.db.QueryRow("insert into blocQuestions(block_id, question_id) values ($1, $2)", blockId, questionId)
+			for _, value := range val.Answers {
+				var answerId int
+				queryAnswer := "insert into question(text) values($1) returning id"
+				row = t.db.QueryRow(queryAnswer, value.Text)
+				if err := row.Scan(&answerId); err != nil {
+					return 0, err
+				}
+				row = t.db.QueryRow("insert into questionAnswers(question_id, answer_id) values ($1,$2)", val.Id, value.Id)
+			}
+		}
+	}
+	return testId, nil
