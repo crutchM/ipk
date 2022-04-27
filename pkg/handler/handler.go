@@ -16,14 +16,14 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 	auth := router.Group("/auth")
 	{
-		auth.POST("sign-in", h.signIn)
-		auth.POST("sign-up", h.signUp)
+		auth.POST("/sign-in", h.signIn)
+		auth.POST("/sign-up", h.signUp)
 	}
 	api := router.Group("/api", h.userIdentity)
 	{
 		chair := api.Group("/chair")
 		{
-			chair.GET("/get-all", h.getAllChairs)
+			chair.GET("/getall", h.getAllChairs)
 			chair.POST("/create", h.createChair)
 		}
 		stat := api.Group("/stat")

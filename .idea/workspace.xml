@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="" />
+    <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/ipk.JJgBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/ipk.JJgBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/testPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/testPostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/000001_init.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000001_init.up.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +28,9 @@
     </option>
   </component>
   <component name="GOROOT" url="file://$USER_HOME$/go/go1.17.8" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -33,6 +46,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27dZX0YU0mqF6xx8Td6FB6ngj4q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,7 +90,34 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/repository/authpostgres.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/handler/chair.go</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
