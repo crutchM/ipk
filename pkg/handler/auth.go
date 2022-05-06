@@ -24,6 +24,13 @@ func (h *Handler) signUp(c *gin.Context) {
 	})
 }
 
+func (h *Handler) check(c *gin.Context) {
+	c.JSON(http.StatusOK, map[string]interface{}{
+		"username": "alex",
+		"password": "123",
+	})
+}
+
 type signInInput struct {
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`

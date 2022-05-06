@@ -1,7 +1,7 @@
 package service
 
 import (
-	"ipk"
+	"ipk/pkg/data"
 	"ipk/pkg/repository"
 )
 
@@ -13,7 +13,7 @@ func NewChairService(repo repository.ChairInterface) *ChairService {
 	return &ChairService{repo: repo}
 }
 
-func (s *ChairService) GetAllChairs() ([]ipk.Chair, error) {
+func (s *ChairService) GetAllChairs() ([]data.Chair, error) {
 	chairs, err := s.repo.GetAllChairs()
 	if err != nil {
 		return nil, err
@@ -21,6 +21,6 @@ func (s *ChairService) GetAllChairs() ([]ipk.Chair, error) {
 	return chairs, nil
 }
 
-func (s *ChairService) CreateChair(chair ipk.Chair) (int, error) {
+func (s *ChairService) CreateChair(chair data.Chair) (int, error) {
 	return s.repo.CreateChair(chair)
 }

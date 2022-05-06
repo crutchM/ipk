@@ -3,7 +3,7 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
-	"ipk"
+	"ipk/pkg/data"
 	"net/http"
 )
 
@@ -18,8 +18,7 @@ func (h *Handler) getAllChairs(c *gin.Context) {
 }
 
 func (h *Handler) createChair(c *gin.Context) {
-	var input ipk.Chair
-
+	var input data.Chair
 	if err := c.BindJSON(&input); err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusBadRequest, err.Error())

@@ -3,7 +3,7 @@ package repository
 import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
-	"ipk"
+	"ipk/pkg/data"
 )
 
 type ChairPostgres struct {
@@ -14,8 +14,8 @@ func NewChairPostgres(db *sqlx.DB) *ChairPostgres {
 	return &ChairPostgres{db: db}
 }
 
-func (c *ChairPostgres) GetAllChairs() ([]ipk.Chair, error) {
-	var chairs []ipk.Chair
+func (c *ChairPostgres) GetAllChairs() ([]data.Chair, error) {
+	var chairs []data.Chair
 	err := c.db.Select(&chairs, "SELECT * FROM chairs")
 	if err != nil {
 		return nil, err
@@ -24,7 +24,7 @@ func (c *ChairPostgres) GetAllChairs() ([]ipk.Chair, error) {
 	return chairs, nil
 }
 
-func (c *ChairPostgres) CreateChair(chair ipk.Chair) (int, error) {
+func (c *ChairPostgres) CreateChair(chair data.Chair) (int, error) {
 	var id int
 	query := fmt.Sprintf("INSERT INTO chairs(name) VALUES($1) RETURNING id")
 	row := c.db.QueryRow(query, chair.Name)

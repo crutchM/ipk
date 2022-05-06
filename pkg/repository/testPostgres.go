@@ -37,30 +37,9 @@ func (t TestPostgres) getQuestions(bId int) ([]data.Question, error) {
 		if err := t.db.Get(&question, "select * from question where id=$1", v); err != nil {
 			return nil, err
 		}
-		if answers, err := t.getAnswers(v); err != nil {
-			return nil, err
-		} else {
-			question.Answers = answers
-		}
 		result = append(result, question)
 	}
 
-	return result, nil
-}
-
-func (t TestPostgres) getAnswers(qId int) ([]data.Answer, error) {
-	var aIds []int
-	var result []data.Answer
-	if err := t.db.Select(&aIds, "select * from questionAnswers where question_id=$1", qId); err != nil {
-		return nil, err
-	}
-	for _, v := range aIds {
-		var answer data.Answer
-		if err := t.db.Get(&answer, "select * from answer where id=$1", v); err != nil {
-			return nil, err
-		}
-		result = append(result, answer)
-	}
 	return result, nil
 }
 
@@ -123,16 +102,9 @@ func (t TestPostgres) CreateTest(test data.Test) (int, error) {
 		}
 		for _, val := range v.Questions {
 			qm := query{"blockQuestions", "block_id", "question_id", blockId}
-			questionId, err := t.insert("question", "text", val.Text, qm)
+			_, err := t.insert("question", "text", val.Text, qm)
 			if err != nil {
 				return 0, err
-			}
-			for _, value := range val.Answers {
-				am := query{"questionAnswers", "question_id", "answer_id", questionId}
-				_, err := t.insert("answer", "text", value.Text, am)
-				if err != nil {
-					return 0, err
-				}
 			}
 		}
 	}

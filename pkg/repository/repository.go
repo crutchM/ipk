@@ -2,7 +2,6 @@ package repository
 
 import (
 	"github.com/jmoiron/sqlx"
-	"ipk"
 	"ipk/pkg/data"
 )
 
@@ -12,8 +11,8 @@ type Authorisation interface {
 }
 
 type ChairInterface interface {
-	GetAllChairs() ([]ipk.Chair, error)
-	CreateChair(chair ipk.Chair) (int, error)
+	GetAllChairs() ([]data.Chair, error)
+	CreateChair(chair data.Chair) (int, error)
 }
 
 type TestInterface interface {

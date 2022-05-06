@@ -1,6 +1,6 @@
-package ipk
+package data
 
-type Chair struct {
+type Post struct {
 	Id   int    `json:"id" db:"id"`
 	Name string `json:"name" db:"name"`
 }

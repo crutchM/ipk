@@ -5,15 +5,22 @@ import (
 	"github.com/sirupsen/logrus"
 	"ipk/pkg/data"
 	"net/http"
+	"strconv"
 )
 
+type Input struct {
+	Name   string       `json:"name"`
+	Blocks []data.Block `json:"blocks"`
+}
+
 func (h *Handler) CreateTest(c *gin.Context) {
-	var test data.Test
-	if err := c.BindJSON(test); err != nil {
+	var input Input
+	if err := c.BindJSON(&input); err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	test := data.Test{Name: input.Name, Blocks: input.Blocks}
 	id, err := h.services.CreateTest(test)
 	if err != nil {
 		logrus.Error(err.Error())
@@ -21,4 +28,20 @@ func (h *Handler) CreateTest(c *gin.Context) {
 		return
 	}
 	SendJSONResponse(c, "testId", id)
+}
+
+func (h *Handler) GetTest(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+	test, er := h.services.GetTest(id)
+	if err != nil {
+		logrus.Error(er.Error())
+		newErrorResponse(c, http.StatusInternalServerError, er.Error())
+		return
+	}
+	c.JSON(http.StatusOK, test)
 }

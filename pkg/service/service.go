@@ -1,7 +1,6 @@
 package service
 
 import (
-	"ipk"
 	"ipk/pkg/data"
 	"ipk/pkg/repository"
 )
@@ -13,8 +12,8 @@ type Authorisation interface {
 }
 
 type ChairInterface interface {
-	GetAllChairs() ([]ipk.Chair, error)
-	CreateChair(chair ipk.Chair) (int, error)
+	GetAllChairs() ([]data.Chair, error)
+	CreateChair(chair data.Chair) (int, error)
 }
 
 type TestInterface interface {

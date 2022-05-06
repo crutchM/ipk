@@ -5,9 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="implements migrations&amp;CD tests repo(need testing)">
+      <change afterPath="$PROJECT_DIR$/pkg/data/lessonType.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/data/post.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/data/results.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/data/stat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/ipk.JJgBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/ipk.JJgBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chair.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/Chair.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/testsResults.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/chair.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/chair.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/authpostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/authpostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/chairpostgress.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/chairpostgress.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/testPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/testPostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/chairService.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/chairService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schema/000001_init.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000001_init.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +41,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -49,6 +72,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -63,6 +87,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\melehin_aa\GolandProjects\ipk\pkg\data" />
+      <recent name="C:\Users\melehin_aa\GolandProjects\ipk\pkg\handler\core" />
     </key>
   </component>
   <component name="RunManager">
@@ -110,11 +135,6 @@
           <url>file://$PROJECT_DIR$/pkg/repository/authpostgres.go</url>
           <line>29</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/handler/chair.go</url>
-          <line>10</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
