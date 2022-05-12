@@ -10,6 +10,7 @@ import (
 	"ipk/pkg/service"
 )
 
+//происходит инициализация всех компонентов, редактировать ничего не надо, если надо поправить порт/строку подключения к бд- идем в config.yml
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))
 	if err := initConfig(); err != nil {

@@ -15,6 +15,7 @@ func NewAuthPostgres(db *sqlx.DB) *AuthPostgres {
 	return &AuthPostgres{db: db}
 }
 
+//добавляем юзера в базу
 func (r *AuthPostgres) CreateUser(user data.User) (string, error) {
 	var id string
 	query := fmt.Sprintf("INSERT INTO %s (id, fullname, login, chair, post, password) values($1,$2,$3,$4,$5,$6) RETURNING id", usersTable)
@@ -25,6 +26,7 @@ func (r *AuthPostgres) CreateUser(user data.User) (string, error) {
 	return id, nil
 }
 
+//получаем юзера из базы
 func (r *AuthPostgres) GetUser(username, password string) (data.User, error) {
 	var user data.User
 	query := fmt.Sprintf("SELECT * FROM %s WHERE login=$1 AND password=$2", usersTable)

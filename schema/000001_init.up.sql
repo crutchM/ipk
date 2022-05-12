@@ -61,5 +61,23 @@ create table blockQuestions(
     question_id integer references question
 );
 
+create table stat(
+    id serial constraint s_pk primary key,
+    userI varchar(255),
+    post integer,
+    employment integer,
+    block integer,
+    question integer,
+    answer integer,
+    Expert integer,
+    lessonDate date,
+    anketDate date
+);
+
+create table expert(
+    id serial constraint e_pk primary key ,
+    name varchar(255)
+)
+
 
 

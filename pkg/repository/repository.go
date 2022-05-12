@@ -3,6 +3,7 @@ package repository
 import (
 	"github.com/jmoiron/sqlx"
 	"ipk/pkg/data"
+	"ipk/pkg/data/stat"
 )
 
 type Authorisation interface {
@@ -20,10 +21,17 @@ type TestInterface interface {
 	CreateTest(test data.Test) (int, error)
 }
 
+type StatInterface interface {
+	GetStat() ([]stat.ResponseStat, error)
+	GetStatByTeacher(id int) ([]stat.ResponseStat, error)
+	AddRow(stat stat.Stat) error
+}
+
 type Repository struct {
 	Authorisation
 	ChairInterface
 	TestInterface
+	StatInterface
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
@@ -31,5 +39,6 @@ func NewRepository(db *sqlx.DB) *Repository {
 		Authorisation:  NewAuthPostgres(db),
 		ChairInterface: NewChairPostgres(db),
 		TestInterface:  NewTestPostgres(db),
+		StatInterface:  NewStatPostgres(db),
 	}
 }

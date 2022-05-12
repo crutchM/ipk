@@ -5,6 +5,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+//класс, для более простой генерации ошибки, и отправки ее клиенту
 type Error struct {
 	Message string `json:"message"`
 }

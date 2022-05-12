@@ -21,6 +21,8 @@ type Config struct {
 	ConnectionRow string
 }
 
+//создание подключения к бд(трогать не надо)
+//я знаю что есть gorm но sqlx для меня более гибкой оказалась
 func NewPostgresDb(cfg Config) (*sqlx.DB, error) {
 	//db, err := sqlx.Open("postgres", fmt.Sprintf("postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"))
 	//cfg.Host, cfg.Port, cfg.Username, cfg.DBName, cfg.Password))

@@ -13,6 +13,7 @@ type Block struct {
 }
 
 type Question struct {
-	Id   int    `json:"id" db:"id"`
-	Text string `json:"text" db:"text"`
+	Id     int    `json:"id" db:"id"`
+	Number string `json:"number" db:"number"`
+	Text   string `json:"text" db:"text"`
 }

@@ -27,6 +27,7 @@ type Service struct {
 	TestInterface
 }
 
+//такая реализация di, чего не поделаешь ради пародии на клин код
 func NewService(repos *repository.Repository) *Service {
 	return &Service{
 		Authorisation:  NewAuthService(repos.Authorisation),

@@ -11,6 +11,8 @@ const (
 	authorisationHeader = "Authorisation"
 )
 
+//прослойка для упрощения работы
+//метод проверябщий валидность токена
 func (h *Handler) userIdentity(c *gin.Context) {
 	header := c.GetHeader("Authorization")
 	if header == "" {
@@ -38,6 +40,7 @@ func (h *Handler) userIdentity(c *gin.Context) {
 	c.Set("userId", userId)
 }
 
+//не помню для чего делался, но пусть останется
 func getUserId(c *gin.Context) (string, error) {
 	id, ok := c.Get("userId")
 	if !ok {
@@ -52,6 +55,7 @@ func getUserId(c *gin.Context) (string, error) {
 	return idString, nil
 }
 
+//просто метод, чтобы простые json ответы в методах не расписывать, полезен, когда надо отправить какое-то одно поле
 func SendJSONResponse(c *gin.Context, key string, value interface{}) {
 	c.JSON(http.StatusOK, map[string]interface{}{
 		key: value,

@@ -6,11 +6,13 @@ import (
 	"ipk/pkg/data"
 )
 
+//топ-2 по шизанутости класс
 type TestPostgres struct {
 	db *sqlx.DB
 }
 
 //get test functional-------------------------------------------------------------------------------------------
+//получем блоки(компоненты, вместе с вопросами в них)
 func (t TestPostgres) getBlocks(tId int) ([]data.Block, error) {
 	var blocks []data.Block
 	var bId []int
@@ -26,6 +28,7 @@ func (t TestPostgres) getBlocks(tId int) ([]data.Block, error) {
 	return blocks, nil
 }
 
+//получаем вопросы, принадлежащие конкретному компоненту
 func (t TestPostgres) getQuestions(bId int) ([]data.Question, error) {
 	var qIds []int
 	var result []data.Question
@@ -43,6 +46,7 @@ func (t TestPostgres) getQuestions(bId int) ([]data.Question, error) {
 	return result, nil
 }
 
+//собирает все в одну сущноость
 func (t TestPostgres) GetTest(id int) (data.Test, error) {
 	var test data.Test
 	if err := t.db.Get(&test, "select * from test where id=$1", id); err != nil {
@@ -75,6 +79,7 @@ type query struct {
 	firsId      int
 }
 
+//метод созданый воимя избежания повторяемости кода, запихивает объект в целевую таблицу, а также закидывает id в связующие таблицы(бомж вариация массива)
 func (t *TestPostgres) insert(tableName, valueName, param string, quer query) (int, error) {
 	var id int
 	queryBlock := fmt.Sprintf("insert into %s(%s) values($1) returning id", tableName, valueName)
@@ -87,6 +92,7 @@ func (t *TestPostgres) insert(tableName, valueName, param string, quer query) (i
 	return id, nil
 }
 
+//основной метод по созданию теста
 func (t TestPostgres) CreateTest(test data.Test) (int, error) {
 	var testId int
 	queryTest := "insert into test(name) values($1) returning id"

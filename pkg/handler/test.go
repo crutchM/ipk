@@ -15,13 +15,13 @@ type Input struct {
 
 func (h *Handler) CreateTest(c *gin.Context) {
 	var input Input
-	if err := c.BindJSON(&input); err != nil {
+	if err := c.BindJSON(&input); err != nil { //получаем данные из тела
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
 	test := data.Test{Name: input.Name, Blocks: input.Blocks}
-	id, err := h.services.CreateTest(test)
+	id, err := h.services.CreateTest(test) //записываем данные в базу
 	if err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())

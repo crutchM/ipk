@@ -10,12 +10,14 @@ import (
 	"time"
 )
 
+//рандомные значения(не менять, все посыпется)(последнее-время действия одного токена)
 const (
 	salt      = "fdfsas12dfdsdv4"
 	signInKey = "kjngjksdngn"
 	tokenTTL  = 12 * time.Hour
 )
 
+//расширение базовых claims jwt либы, нужно чтобы генерить токен на основе id пользователя
 type tokenClaims struct {
 	jwt.StandardClaims
 	UserId string `json:"userId"`
@@ -29,11 +31,13 @@ func NewAuthService(repo repository.Authorisation) *AuthService {
 	return &AuthService{repo: repo}
 }
 
+//просто хэшируем пароль и вызываем метод репозитория
 func (s *AuthService) CreateUser(user data.User) (string, error) {
 	user.Password = generatePassword(user.Password)
 	return s.repo.CreateUser(user)
 }
 
+//при авторизации нам нужен токен, поэтому снала получаем пользователя, а потом уже генерим токен посредством либы(вся докумка есть на гите либы, ссылка в импорте)
 func (s *AuthService) GenerateToken(username string, password string) (string, error) {
 	user, err := s.repo.GetUser(username, password)
 	if err != nil {
@@ -50,6 +54,7 @@ func (s *AuthService) GenerateToken(username string, password string) (string, e
 	return token.SignedString([]byte(signInKey))
 }
 
+//проверяем валидность токена, получаем id
 func (s AuthService) ParseToken(accessToken string) (string, error) {
 	token, err := jwt.ParseWithClaims(accessToken, &tokenClaims{},
 		func(token *jwt.Token) (interface{}, error) {
