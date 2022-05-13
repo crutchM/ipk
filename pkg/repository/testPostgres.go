@@ -16,13 +16,15 @@ type TestPostgres struct {
 func (t TestPostgres) getBlocks(tId int) ([]data.Block, error) {
 	var blocks []data.Block
 	var bId []int
-	if err := t.db.Select(&bId, "select block_id from testBlocks where tes_id = $1", tId); err != nil {
+	if err := t.db.Select(&bId, "select block_id from testBlocks where test_id = $1", tId); err != nil {
 		return nil, err
 	}
 	for _, v := range bId {
-		if err := t.db.Select(&blocks, "select * from block where id=$1", v); err != nil {
+		var block data.Block
+		if err := t.db.Get(&block, "select * from block where id=$1", v); err != nil {
 			return nil, err
 		}
+		blocks = append(blocks, block)
 	}
 
 	return blocks, nil

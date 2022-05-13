@@ -39,7 +39,7 @@ func (s *AuthService) CreateUser(user data.User) (string, error) {
 
 //при авторизации нам нужен токен, поэтому снала получаем пользователя, а потом уже генерим токен посредством либы(вся докумка есть на гите либы, ссылка в импорте)
 func (s *AuthService) GenerateToken(username string, password string) (string, error) {
-	user, err := s.repo.GetUser(username, password)
+	user, err := s.repo.GetUser(username, generatePassword(password))
 	if err != nil {
 		return "", err
 	}
@@ -74,6 +74,10 @@ func (s AuthService) ParseToken(accessToken string) (string, error) {
 	}
 
 	return claims.UserId, nil
+}
+
+func (s AuthService) GetAll() []data.User {
+	return s.repo.GetAll()
 }
 
 func generatePassword(password string) string {

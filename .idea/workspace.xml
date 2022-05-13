@@ -4,30 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="wait more details">
-      <change afterPath="$PROJECT_DIR$/pkg/data/Expert.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/data/stat/INdividualResult.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/data/stat/KafResult.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/data/stat/responseStat.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/data/stat/stat.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/repository/statPostgres.go" afterDir="false" />
+    <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="i wanna die(and make some comments)">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/lessonType.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/lessonType.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/results.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/stat.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/data/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/data/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/repository/authpostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/authpostgres.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/repository/postgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/postgres.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/statPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/statPostgres.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/repository/testPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/testPostgres.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/service/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/000001_init.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000001_init.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +77,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="ipk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build ipk/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="ipk" />
       <working_directory value="$PROJECT_DIR$" />
@@ -96,6 +92,15 @@
       <package value="ipk/cmd" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="ipk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -122,9 +127,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implements migrations&amp;CD tests repo(need testing)" />
     <MESSAGE value="wait more details" />
-    <option name="LAST_COMMIT_MESSAGE" value="wait more details" />
+    <MESSAGE value="i wanna die(and make some comments)" />
+    <option name="LAST_COMMIT_MESSAGE" value="i wanna die(and make some comments)" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/repository/testPostgres.go</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

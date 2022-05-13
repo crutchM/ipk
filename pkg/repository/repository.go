@@ -9,6 +9,7 @@ import (
 type Authorisation interface {
 	CreateUser(user data.User) (string, error)
 	GetUser(username, password string) (data.User, error)
+	GetAll() []data.User
 }
 
 type ChairInterface interface {
@@ -22,8 +23,8 @@ type TestInterface interface {
 }
 
 type StatInterface interface {
-	GetStat() ([]stat.ResponseStat, error)
-	GetStatByTeacher(id int) ([]stat.ResponseStat, error)
+	GetStat(chair int) ([]stat.ResponseStat, error)
+	GetStatByTeacher(id int) ([]stat.IndividualResult, error)
 	AddRow(stat stat.Stat) error
 }
 

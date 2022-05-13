@@ -13,54 +13,69 @@ type StatPostgres struct {
 func NewStatPostgres(db *sqlx.DB) *StatPostgres {
 	return &StatPostgres{db: db}
 }
-func (s StatPostgres) formResponse(statFromDb []stat.Stat) ([]stat.ResponseStat, error) {
-	var item stat.ResponseStat
+
+func (s StatPostgres) getBlocks(teacher int) ([]data.Block, error) {
+	return nil, nil
+}
+
+func (s StatPostgres) getAllAnketForUser(id int) ([]data.Block, error) {
+	return nil, nil
+}
+func (s StatPostgres) formResponse(entries []stat.Stat) ([]stat.ResponseStat, error) {
 	var result []stat.ResponseStat
-	for _, v := range statFromDb {
-		var user data.User
-		err := s.db.Get(&user, "select * from users where id=$1", v.UserId)
+	for _, v := range entries {
+		var item stat.ResponseStat
+		teacher, err := s.getTeacher(v.UserId)
 		if err != nil {
 			return nil, err
 		}
-		item.Teacher = user
-		var emp string
-		err = s.db.Get(&emp, "selet name from employment where id=$1", v.Employment)
+		item.Teacher = teacher
+		emp, err := s.getEmployment(v.Employment)
 		if err != nil {
 			return nil, err
 		}
 		item.Employment = emp
+
 	}
 }
+func (s StatPostgres) getBlocks() {
 
-func (s StatPostgres) getAllAnketForUser(id int) ([]data.Block, error) {
-	var result []data.Block
-	var ids []int
-	err := s.db.Select(&ids, "select block from stat where userI=$1 group by id order by id", id)
+}
+
+func (s StatPostgres) getEmployment(id int) (string, error) {
+	var emp string
+	err := s.db.Get(&emp, "select name from employment where id=$1", id)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
-	for _, v := range ids {
-
-		err = s.db.Select(&qIds, "select question, answer from stat where block=$1", v)
-	}
+	return emp, nil
 }
 
-func (s StatPostgres) GetStat() ([]stat.ResponseStat, error) {
+func (s StatPostgres) getTeacher(id string) (data.User, error) {
+	var teacher data.User
+	err := s.db.Get(&teacher, "select * from users where id=$1", id)
+	if err != nil {
+		return data.User{}, err
+	}
+	return teacher, nil
+}
+
+func (s StatPostgres) GetStat(chair int) ([]stat.ResponseStat, error) {
 	var static []stat.Stat
-	err := s.db.Select(&static, "select * from Stat")
+	err := s.db.Select(&static, "select * from stat where chair=$1", chair)
 	if err != nil {
 		return nil, err
 	}
 	return nil, nil
 }
 
-func (s StatPostgres) GetStatByTeacher(id int) ([]stat.ResponseStat, error) {
-	var stat []stat.Stat
-	err := s.db.Select(&stat, "select * form Stat where userI=$1", id)
+func (s StatPostgres) GetStatByTeacher(id int) ([]stat.IndividualResult, error) {
+	var static []stat.Stat
+	err := s.db.Select(&static, "select * form Stat where userI=$1", id)
 	if err != nil {
 		return nil, err
 	}
-	return stat, nil
+	return nil, nil
 }
 
 func (s StatPostgres) AddRow(stat stat.Stat) error {

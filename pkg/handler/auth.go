@@ -52,3 +52,7 @@ func (h *Handler) signIn(c *gin.Context) {
 		"token": token,
 	})
 }
+
+func (h *Handler) getAll(c *gin.Context) {
+	c.JSON(http.StatusOK, h.services.GetAll())
+}

@@ -21,6 +21,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.GET("/", h.check)
 		auth.POST("/sign-in", h.signIn)
 		auth.POST("/sign-up", h.signUp)
+		auth.GET("/getall", h.getAll)
 	}
 	//основной набор методов апи userIdentity-просто метод, который проверяет валидность jwt токена, полученного после авторизации
 	api := router.Group("/api", h.userIdentity)

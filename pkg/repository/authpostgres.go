@@ -33,3 +33,12 @@ func (r *AuthPostgres) GetUser(username, password string) (data.User, error) {
 	err := r.db.Get(&user, query, username, password)
 	return user, err
 }
+
+func (r *AuthPostgres) GetAll() []data.User {
+	var users []data.User
+	err := r.db.Select(&users, "SELECT * FROM users")
+	if err != nil {
+		return nil
+	}
+	return users
+}

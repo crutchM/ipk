@@ -9,6 +9,7 @@ type Authorisation interface {
 	CreateUser(user data.User) (string, error)
 	GenerateToken(username string, password string) (string, error)
 	ParseToken(accessToken string) (string, error)
+	GetAll() []data.User
 }
 
 type ChairInterface interface {
