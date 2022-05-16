@@ -16,4 +16,5 @@ type Question struct {
 	Id     int    `json:"id" db:"id"`
 	Number string `json:"number" db:"number"`
 	Text   string `json:"text" db:"text"`
+	Answer int    `json:"answer" db:"answer"`
 }

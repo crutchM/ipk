@@ -32,16 +32,19 @@ func (h *Handler) InitRoutes() *gin.Engine {
 			chair.GET("/getall", h.getAllChairs)
 			chair.POST("/create", h.createChair)
 		}
-		stat := api.Group("/stat")
-		{
-			stat.GET("/")
-		}
 
 		test := api.Group("/test")
 		{
 			//методв create-задел на будущее, пока необходим только один вариант опроса
 			test.GET("/:id", h.GetTest)
 			test.POST("/create", h.CreateTest)
+		}
+		stat := api.Group("/stat")
+		{
+			stat.GET("/getStat", h.getStat)
+			stat.GET("/getIndividual")
+			stat.POST("/setStat")
+			stat.POST("/setResult")
 		}
 	}
 

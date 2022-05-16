@@ -37,6 +37,7 @@ func main() {
 	if err := srv.Run(viper.GetString("port"), hands.InitRoutes()); err != nil {
 		logrus.Fatal(err.Error())
 	}
+
 }
 
 func initConfig() error {

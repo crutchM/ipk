@@ -2,6 +2,7 @@ package service
 
 import (
 	"ipk/pkg/data"
+	"ipk/pkg/data/stat"
 	"ipk/pkg/repository"
 )
 
@@ -21,11 +22,18 @@ type TestInterface interface {
 	CreateTest(test data.Test) (int, error)
 	GetTest(id int) (test data.Test, err error)
 }
+type StatInterface interface {
+	GetStat(chair int) ([]stat.ResponseStat, error)
+	GetStatByTeacher(id int) ([]stat.IndividualResult, error)
+	AddRow(stat stat.Stat) (int, error)
+	AddResult(result stat.Result, rowId int) error
+}
 
 type Service struct {
 	Authorisation
 	ChairInterface
 	TestInterface
+	StatInterface
 }
 
 //такая реализация di, чего не поделаешь ради пародии на клин код
@@ -34,6 +42,7 @@ func NewService(repos *repository.Repository) *Service {
 		Authorisation:  NewAuthService(repos.Authorisation),
 		ChairInterface: NewChairService(repos.ChairInterface),
 		TestInterface:  NewTestService(repos.TestInterface),
+		StatInterface:  NewStatService(repos.StatInterface),
 	}
 
 }

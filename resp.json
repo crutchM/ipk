@@ -1,0 +1,69 @@
+[
+  {
+    "teacher": {
+      "id": "39c48ef9",
+      "fullname": "Мелёхин",
+      "login": "crutchmm",
+      "chair": 1,
+      "post": 1,
+      "password": "6664667361733132646664736476344b73c753a9308b4f22cedf2ab621df93bb3db562"
+    },
+    "employment": "1",
+    "blocks": [
+      {
+        "id": 2,
+        "name": "2",
+        "questions": [
+          {
+            "id": 2,
+            "number": "2.1",
+            "text": "q4",
+            "answer": 0
+          },
+          {
+            "id": 3,
+            "number": "2.2",
+            "text": "q5",
+            "answer": 0
+          },
+          {
+            "id": 5,
+            "number": "2.3",
+            "text": "q6",
+            "answer": 0
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "1",
+        "questions": [
+          {
+            "id": 1,
+            "number": "1.1",
+            "text": "q1",
+            "answer": 0
+          },
+          {
+            "id": 3,
+            "number": "1.2",
+            "text": "q2",
+            "answer": 0
+          },
+          {
+            "id": 3,
+            "number": "1.3",
+            "text": "q3",
+            "answer": 0
+          }
+        ]
+      }
+    ],
+    "expert": {
+      "id": 0,
+      "name": ""
+    },
+    "lessonDate": "2022-05-16T00:00:00Z",
+    "anketDate": "2022-05-17T00:00:00Z"
+  }
+]

@@ -1,0 +1,55 @@
+func (s StatPostgres) formResponse(entries []stat.Stat) ([]stat.ResponseStat, error) {
+	var result []stat.ResponseStat
+	for _, v := range entries {
+		var item stat.ResponseStat
+		teacher, err := s.getTeacher(v.UserId)
+		if err != nil {
+			return nil, err
+		}
+		item.Teacher = teacher
+		emp, err := s.getEmployment(v.Employment)
+		if err != nil {
+			return nil, err
+		}
+		item.Employment = emp
+
+	}
+}
+
+func (s StatPostgres) getBlocks(tId string) ([]data.Block, error) {
+	var bIds []int
+	err := s.db.Select(&bIds, "SELECT block from stat where userI=$1", tId)
+	var blocks []data.Block
+	for _, v := range bIds {
+		var item data.Block
+		err = s.db.Get(&item, "select * from block where id=$1", v)
+		if err != nil {
+			return nil, err
+		}
+		ques, err := s.getQuestions(v)
+		if err != nil {
+			return nil, err
+		}
+		item.Questions = ques
+		blocks = append(blocks, item)
+	}
+	return blocks, nil
+}
+
+func (s StatPostgres) getQuestions(bId int) ([]data.Question, error) {
+	var aIds []int
+	err := s.db.Select(&aIds, "select question from stat where block=$1", bId)
+	if err != nil {
+		return nil, err
+	}
+	var result []data.Question
+	for _, v := range aIds {
+		var item data.Question
+		err = s.db.Get(&item, "select * from question where id=$1", v)
+		var answer int
+		err = s.db.Get(&answer, "select answer from stat where ")
+	}
+}
+
+
+

@@ -8,3 +8,7 @@ type User struct {
 	Post     int    `json:"post"  binding:"required" db:"post"`
 	Password string `json:"password"  binding:"required" db:"password"`
 }
+
+func NewUser(id string, fullName string, login string, chair int, post int, password string) *User {
+	return &User{Id: id, FullName: fullName, Login: login, Chair: chair, Post: post, Password: password}
+}

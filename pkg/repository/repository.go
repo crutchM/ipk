@@ -24,8 +24,9 @@ type TestInterface interface {
 
 type StatInterface interface {
 	GetStat(chair int) ([]stat.ResponseStat, error)
-	GetStatByTeacher(id int) ([]stat.IndividualResult, error)
-	AddRow(stat stat.Stat) error
+	GetStatByTeacher(id int) ([]stat.ResponseStat, error)
+	AddRow(stat stat.Stat) (int, error)
+	AddResult(result stat.Result, rowId int) error
 }
 
 type Repository struct {
