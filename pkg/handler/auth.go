@@ -8,6 +8,7 @@ import (
 )
 
 func (h *Handler) signUp(c *gin.Context) {
+
 	var input data.User
 
 	if err := c.BindJSON(&input); err != nil {
@@ -19,11 +20,19 @@ func (h *Handler) signUp(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"id": id,
 	})
 }
-
+func (h *Handler) opt(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	return
+}
 func (h *Handler) check(c *gin.Context) {
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"username": "alex",
@@ -37,6 +46,7 @@ type signInInput struct {
 }
 
 func (h *Handler) signIn(c *gin.Context) {
+
 	var input signInInput
 
 	if err := c.BindJSON(&input); err != nil {
@@ -48,11 +58,17 @@ func (h *Handler) signIn(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"token": token,
 	})
 }
 
 func (h *Handler) getAll(c *gin.Context) {
-	c.JSON(http.StatusOK, h.services.GetAll())
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	SendJSONResponse(c, "users", h.services.GetAll())
 }

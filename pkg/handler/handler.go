@@ -18,6 +18,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
 	{
+		auth.OPTIONS("/", h.opt)
 		auth.GET("/", h.check)
 		auth.POST("/sign-in", h.signIn)
 		auth.POST("/sign-up", h.signUp)
