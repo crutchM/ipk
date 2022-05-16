@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"ipk/pkg/data"
+	"ipk/pkg/data/stat"
 	"net/http"
 	"strconv"
 )
@@ -44,4 +45,41 @@ func (h *Handler) GetTest(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, test)
+}
+
+type ResInput struct {
+	Blocks []data.Block `json:"blocks"`
+	Test   int          `json:"test"`
+}
+
+func (h *Handler) SendResult(c *gin.Context) {
+	var input ResInput
+	if err := c.BindJSON(&input); err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+	err := h.services.AddResult(input.Blocks, input.Test)
+	if err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+	SendJSONResponse(c, "status", "success")
+}
+
+func (h *Handler) SendStat(c *gin.Context) {
+	var input stat.Stat
+	if err := c.BindJSON(&input); err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+	id, err := h.services.AddRow(input)
+	if err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+	SendJSONResponse(c, "rowId", id)
 }

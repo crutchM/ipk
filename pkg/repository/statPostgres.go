@@ -76,11 +76,13 @@ func (s StatPostgres) getBlocks(ids []int, statId int) ([]data.Block, error) {
 			if err := s.db.Get(&question, "select * from question where id=$1", ques); err != nil {
 				return nil, err
 			}
+			var answer int
 			for _, v := range st {
 				if v.Question == question.Id {
-					question.Id = v.Answer
+					answer |= v.Answer
 				}
 			}
+			question.Answer = answer
 			block.Questions = append(block.Questions, question)
 		}
 		result = append(result, block)
@@ -99,7 +101,7 @@ func (s StatPostgres) getEmployment(id int) (string, error) {
 
 func (s StatPostgres) getTeacher(id string) (data.User, error) {
 	var teacher data.User
-	err := s.db.Get(&teacher, "select * from users where id=$1", id)
+	err := s.db.Get(&teacher, "select fullname from users where id=$1", id)
 	if err != nil {
 		return data.User{}, err
 	}
@@ -115,9 +117,9 @@ func (s StatPostgres) GetStat(chair int) ([]stat.ResponseStat, error) {
 	return s.getResult(static)
 }
 
-func (s StatPostgres) GetStatByTeacher(id int) ([]stat.ResponseStat, error) {
+func (s StatPostgres) GetStatByTeacher(id string) ([]stat.ResponseStat, error) {
 	var static []stat.Stat
-	err := s.db.Select(&static, "select * form stat where userI=$1", id)
+	err := s.db.Select(&static, "select * from stat where useri=$1", id)
 	if err != nil {
 		return nil, err
 	}
@@ -125,9 +127,24 @@ func (s StatPostgres) GetStatByTeacher(id int) ([]stat.ResponseStat, error) {
 }
 
 func (s StatPostgres) AddRow(stat stat.Stat) (int, error) {
-	return 0, nil
+	var id int
+	row := s.db.QueryRow("insert into stat(useri, post, chair, employment, expert, lessondate, anketdate) values ($1, $2, $3, $4, $5, $6, $7) returning id",
+		stat.UserId, stat.PostId, stat.ChairId, stat.Employment, stat.Expert, stat.LessonDate, stat.AnketDate)
+	if err := row.Scan(&id); err != nil {
+		return 0, err
+	}
+	return id, nil
 }
 
-func (s StatPostgres) AddResult(result stat.Result, rowId int) error {
+func (s StatPostgres) AddResult(result []data.Block, rowId int) error {
+	for _, v := range result {
+		for _, val := range v.Questions {
+			var id int
+			row := s.db.QueryRow("insert into results(test, block, question, answer) values ($1,$2,$3,$4) returning id", rowId, v.Id, val.Id, val.Answer)
+			if err := row.Scan(&id); err != nil {
+				return err
+			}
+		}
+	}
 	return nil
 }

@@ -38,13 +38,13 @@ func (h *Handler) InitRoutes() *gin.Engine {
 			//методв create-задел на будущее, пока необходим только один вариант опроса
 			test.GET("/:id", h.GetTest)
 			test.POST("/create", h.CreateTest)
+			test.POST("/sendResults", h.SendResult)
+			test.POST("/sendStat", h.SendStat)
 		}
 		stat := api.Group("/stat")
 		{
 			stat.GET("/getStat", h.getStat)
-			stat.GET("/getIndividual")
-			stat.POST("/setStat")
-			stat.POST("/setResult")
+			stat.GET("/getIndividual/:id", h.getStatByTeacher)
 		}
 	}
 

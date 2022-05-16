@@ -3,7 +3,6 @@ package handler
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
-	"ipk/pkg/data/stat"
 	"net/http"
 )
 
@@ -28,15 +27,15 @@ func (h *Handler) getStat(c *gin.Context) {
 
 }
 
-func (h *Handler) setStat(c *gin.Context) {
-	var input stat.Stat
-	if err := c.BindJSON(&input); err != nil {
+func (h *Handler) getStatByTeacher(c *gin.Context) {
+	id := c.Param("id")
+
+	stat, err := h.services.GetStatByTeacher(id)
+	if err != nil {
 		logrus.Error(err.Error())
-		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
 	}
-}
-
-func (h *Handler) setTestResult(c *gin.Context) {
+	c.JSON(http.StatusOK, stat)
 
 }
