@@ -1,12 +1,23 @@
 package handler
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"ipk/pkg/data"
 	"net/http"
 )
 
+// @SummarySignUp
+// @Tags auth
+// @ID create-account
+// @Accept json
+// @Produce json
+// @Param input body data.User true "account info"
+// @Success 200 {integer} integer 1
+// @Failure 400 {object} Error
+// @Failure 500 {object} Error
+// @Router /auth/sign-up [post]
 func (h *Handler) signUp(c *gin.Context) {
 
 	var input data.User
@@ -41,8 +52,8 @@ func (h *Handler) check(c *gin.Context) {
 }
 
 type signInInput struct {
-	Username string `json:"username" binding:"required"`
-	Password string `json:"password" binding:"required"`
+	Username string `json:"username" `
+	Password string `json:"password" `
 }
 
 func (h *Handler) signIn(c *gin.Context) {
@@ -58,12 +69,11 @@ func (h *Handler) signIn(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
-	c.Header("Access-Control-Allow-Credentials", "true")
-	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
-	c.JSON(http.StatusOK, map[string]interface{}{
-		"token": token,
-	})
+	//c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	//c.Header("Access-Control-Allow-Credentials", "true")
+	//c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	fmt.Println(token)
+	SendJSONResponse(c, "token", token)
 }
 
 func (h *Handler) getAll(c *gin.Context) {

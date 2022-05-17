@@ -3,6 +3,7 @@ package handler
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"strings"
 )
@@ -57,6 +58,11 @@ func getUserId(c *gin.Context) (string, error) {
 
 //просто метод, чтобы простые json ответы в методах не расписывать, полезен, когда надо отправить какое-то одно поле
 func SendJSONResponse(c *gin.Context, key string, value interface{}) {
+	if value == nil {
+		logrus.Error("not enough token")
+		newErrorResponse(c, http.StatusInternalServerError, "not enough token")
+		return
+	}
 	c.JSON(http.StatusOK, map[string]interface{}{
 		key: value,
 	})

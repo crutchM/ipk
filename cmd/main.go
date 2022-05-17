@@ -10,6 +10,15 @@ import (
 	"ipk/pkg/service"
 )
 
+// @Title Ipk VSOKO app
+// @Version 1.0
+
+// @host localhost:8081
+// @BasePath /
+
+// @SecurityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 //происходит инициализация всех компонентов, редактировать ничего не надо, если надо поправить порт/строку подключения к бд- идем в config.yml
 func main() {
 	logrus.SetFormatter(new(logrus.JSONFormatter))

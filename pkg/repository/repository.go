@@ -29,6 +29,10 @@ type StatInterface interface {
 	AddResult(result []data.Block, rowId int) error
 }
 
+type UsersCRUD interface {
+	DeleteById(id int) error
+}
+
 type Repository struct {
 	Authorisation
 	ChairInterface
