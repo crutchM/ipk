@@ -28,6 +28,7 @@ func (h *Handler) CreateTest(c *gin.Context) {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
 	}
+	h.addHeaders(c)
 	SendJSONResponse(c, "testId", id)
 }
 
@@ -38,6 +39,7 @@ func (h *Handler) GetTest(c *gin.Context) {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	h.addHeaders(c)
 	test, er := h.services.GetTest(id)
 	if err != nil {
 		logrus.Error(er.Error())
@@ -59,6 +61,7 @@ func (h *Handler) SendResult(c *gin.Context) {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	h.addHeaders(c)
 	err := h.services.AddResult(input.Blocks, input.Test)
 	if err != nil {
 		logrus.Error(err.Error())
@@ -75,6 +78,7 @@ func (h *Handler) SendStat(c *gin.Context) {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	h.addHeaders(c)
 	id, err := h.services.AddRow(input)
 	if err != nil {
 		logrus.Error(err.Error())

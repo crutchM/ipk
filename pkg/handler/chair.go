@@ -12,6 +12,7 @@ func (h *Handler) getAllChairs(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 	}
+	h.addHeaders(c)
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"chair": chairs,
 	})
@@ -28,6 +29,7 @@ func (h *Handler) createChair(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
+	h.addHeaders(c)
 	c.JSON(http.StatusOK, map[string]interface{}{
 		"chair": chair,
 	})

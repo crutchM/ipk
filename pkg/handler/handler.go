@@ -15,10 +15,11 @@ func NewHandler(services *service.Service) *Handler {
 }
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
+	router.OPTIONS("/", h.opt)
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
 	{
-		auth.OPTIONS("/", h.opt)
+		auth.OPTIONS("/sign-in", h.opt)
 		auth.GET("/", h.check)
 		auth.POST("/sign-in", h.signIn)
 		auth.POST("/sign-up", h.signUp)

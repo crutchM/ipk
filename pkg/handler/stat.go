@@ -17,6 +17,7 @@ func (h *Handler) getStat(c *gin.Context) {
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	h.addHeaders(c)
 	res, err := h.services.StatInterface.GetStat(input.Chair)
 	if err != nil {
 		logrus.Error(err.Error())
@@ -29,7 +30,7 @@ func (h *Handler) getStat(c *gin.Context) {
 
 func (h *Handler) getStatByTeacher(c *gin.Context) {
 	id := c.Param("id")
-
+	h.addHeaders(c)
 	stat, err := h.services.GetStatByTeacher(id)
 	if err != nil {
 		logrus.Error(err.Error())
