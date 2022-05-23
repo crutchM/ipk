@@ -43,7 +43,7 @@ func (h *Handler) opt(c *gin.Context) {
 	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
-	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
 	c.JSON(http.StatusOK, map[string]string{
 		"cool": "cool",
 	})
@@ -86,12 +86,14 @@ func (h *Handler) signIn(c *gin.Context) {
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
-
 	fmt.Println(token)
 	SendJSONResponse(c, "token", token)
 }
 
 func (h *Handler) getAll(c *gin.Context) {
-	h.addHeaders(c)
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
 	SendJSONResponse(c, "users", h.services.GetAll())
 }

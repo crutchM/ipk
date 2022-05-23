@@ -29,8 +29,11 @@ type StatInterface interface {
 	AddResult(result []data.Block, rowId int) error
 }
 
-type UsersCRUD interface {
-	DeleteById(id int) error
+type GetterInterface interface {
+	GetAllTeachers() []data.User
+	GetAllExperts() []data.Expert
+	GetEmployments() []data.LessonType
+	GetUser(id string) data.User
 }
 
 type Repository struct {
@@ -38,13 +41,15 @@ type Repository struct {
 	ChairInterface
 	TestInterface
 	StatInterface
+	GetterInterface
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{
-		Authorisation:  NewAuthPostgres(db),
-		ChairInterface: NewChairPostgres(db),
-		TestInterface:  NewTestPostgres(db),
-		StatInterface:  NewStatPostgres(db),
+		Authorisation:   NewAuthPostgres(db),
+		ChairInterface:  NewChairPostgres(db),
+		TestInterface:   NewTestPostgres(db),
+		StatInterface:   NewStatPostgres(db),
+		GetterInterface: NewGetterPostgres(db),
 	}
 }

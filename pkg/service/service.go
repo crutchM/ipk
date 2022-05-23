@@ -27,7 +27,13 @@ type StatInterface interface {
 	GetStatByTeacher(id string) ([]stat.ResponseStat, error)
 	AddRow(stat stat.Stat) (int, error)
 	AddResult(result []data.Block, rowId int) error
-	FormStat(id string)
+}
+
+type GetterInterface interface {
+	GetAllTeachers() []data.User
+	GetAllExperts() []data.Expert
+	GetEmployments() []data.LessonType
+	GetUser(id string) data.User
 }
 
 type Service struct {
@@ -35,15 +41,17 @@ type Service struct {
 	ChairInterface
 	TestInterface
 	StatInterface
+	GetterInterface
 }
 
 //такая реализация di, чего не поделаешь ради пародии на клин код
 func NewService(repos *repository.Repository) *Service {
 	return &Service{
-		Authorisation:  NewAuthService(repos.Authorisation),
-		ChairInterface: NewChairService(repos.ChairInterface),
-		TestInterface:  NewTestService(repos.TestInterface),
-		StatInterface:  NewStatService(repos.StatInterface),
+		Authorisation:   NewAuthService(repos.Authorisation),
+		ChairInterface:  NewChairService(repos.ChairInterface),
+		TestInterface:   NewTestService(repos.TestInterface),
+		StatInterface:   NewStatService(repos.StatInterface),
+		GetterInterface: NewGetterService(repos.GetterInterface),
 	}
 
 }

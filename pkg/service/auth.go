@@ -33,7 +33,7 @@ func NewAuthService(repo repository.Authorisation) *AuthService {
 
 //просто хэшируем пароль и вызываем метод репозитория
 func (s *AuthService) CreateUser(user data.User) (string, error) {
-	if user.Post != 1 || user.Post != 2 {
+	if user.Post == 3 {
 		return s.repo.CreateUser(user)
 	} else {
 		user.Password = generatePassword(user.Password)
@@ -46,14 +46,10 @@ func (s *AuthService) CreateUser(user data.User) (string, error) {
 func (s *AuthService) GenerateToken(username string, password string) (string, error) {
 	var user data.User
 	var err error
-	if password == "admin" {
-		user, err = s.repo.GetUser(username, password)
-	}
 	user, err = s.repo.GetUser(username, generatePassword(password))
 	if err != nil {
 		return "", err
 	}
-
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &tokenClaims{
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(tokenTTL).Unix(),

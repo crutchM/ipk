@@ -36,7 +36,7 @@ func (r *AuthPostgres) GetUser(username, password string) (data.User, error) {
 
 func (r *AuthPostgres) GetAll() []data.User {
 	var users []data.User
-	err := r.db.Select(&users, "SELECT fullname, login, chair, post FROM users")
+	err := r.db.Select(&users, "SELECT id, fullname, login, chair, post FROM users where post=1 or post=2")
 	if err != nil {
 		return nil
 	}

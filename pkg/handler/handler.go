@@ -16,6 +16,10 @@ func NewHandler(services *service.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 	router.OPTIONS("/", h.opt)
+	router.OPTIONS("/api/user/teachers", h.opt)
+	router.OPTIONS("/api/user/experts", h.opt)
+	router.OPTIONS("/api/user/employments", h.opt)
+
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
 	{
@@ -24,13 +28,21 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.POST("/sign-in", h.signIn)
 		auth.POST("/sign-up", h.signUp)
 		auth.GET("/getall", h.getAll)
+
 	}
 	//основной набор методов апи userIdentity-просто метод, который проверяет валидность jwt токена, полученного после авторизации
 	api := router.Group("/api", h.userIdentity)
 	{
+		user := api.Group("/user")
+		{
+			user.GET("/", h.getUser)
+			user.GET("/teachers", h.getTeachers)
+			user.GET("/experts", h.getExperts)
+			user.GET("/employments", h.getEmployments)
+		}
 		chair := api.Group("/chair")
 		{
-			//вспомогательные методы для кафедр, возможно не буду использоваться
+			//вспомогательные методы для кафедр, возможно не будут использоваться
 			chair.GET("/getall", h.getAllChairs)
 			chair.POST("/create", h.createChair)
 		}
@@ -41,7 +53,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 			test.GET("/:id", h.GetTest)
 			test.POST("/create", h.CreateTest)
 			test.POST("/sendResults", h.SendResult)
+			test.OPTIONS("/sendResults", h.opt)
 			test.POST("/sendStat", h.SendStat)
+			test.OPTIONS("/sendStat", h.opt)
 		}
 		stat := api.Group("/stat")
 		{
