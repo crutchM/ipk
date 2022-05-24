@@ -16,7 +16,9 @@ func NewHandler(services *service.Service) *Handler {
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 	router.OPTIONS("/", h.opt)
+
 	router.OPTIONS("/api/user/teachers", h.opt)
+	router.OPTIONS("/api/user/", h.opt)
 	router.OPTIONS("/api/user/experts", h.opt)
 	router.OPTIONS("/api/user/employments", h.opt)
 	router.OPTIONS("/api/test/", h.opt)
