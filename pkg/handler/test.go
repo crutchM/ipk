@@ -6,7 +6,6 @@ import (
 	"ipk/pkg/data"
 	"ipk/pkg/data/stat"
 	"net/http"
-	"strconv"
 )
 
 type Input struct {
@@ -29,24 +28,33 @@ func (h *Handler) CreateTest(c *gin.Context) {
 		return
 	}
 	h.addHeaders(c)
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+
 	SendJSONResponse(c, "testId", id)
 }
 
 func (h *Handler) GetTest(c *gin.Context) {
-	id, err := strconv.Atoi(c.Param("id"))
+	//id, err := strconv.Atoi(c.Param("id"))
+	//if err != nil {
+	//	logrus.Error(err.Error())
+	//	newErrorResponse(c, http.StatusBadRequest, err.Error())
+	//	return
+	//}
+	test, err := h.services.GetTest(1)
 	if err != nil {
 		logrus.Error(err.Error())
-		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
 	}
-	h.addHeaders(c)
-	test, er := h.services.GetTest(id)
-	if err != nil {
-		logrus.Error(er.Error())
-		newErrorResponse(c, http.StatusInternalServerError, er.Error())
-		return
-	}
-	c.JSON(http.StatusOK, test)
+	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Credentials", "true")
+	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
+	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+
+	SendJSONResponse(c, "test", test)
 }
 
 type ResInput struct {
@@ -71,7 +79,7 @@ func (h *Handler) SendResult(c *gin.Context) {
 	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
-	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
 	SendJSONResponse(c, "status", "success")
 }
 
@@ -92,6 +100,6 @@ func (h *Handler) SendStat(c *gin.Context) {
 	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
-	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
 	SendJSONResponse(c, "rowId", id)
 }

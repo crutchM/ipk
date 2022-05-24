@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="formated for cors">
-      <change afterPath="$PROJECT_DIR$/pkg/handler/getters.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/repository/GetterPostgtres.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/service/getterService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handler/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/repository/authpostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/authpostgres.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/repository/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/service/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/service/statService.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/service/statService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

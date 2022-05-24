@@ -19,6 +19,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router.OPTIONS("/api/user/teachers", h.opt)
 	router.OPTIONS("/api/user/experts", h.opt)
 	router.OPTIONS("/api/user/employments", h.opt)
+	router.OPTIONS("/api/test/", h.opt)
 
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
@@ -50,7 +51,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		test := api.Group("/test")
 		{
 			//методв create-задел на будущее, пока необходим только один вариант опроса
-			test.GET("/:id", h.GetTest)
+			test.GET("/", h.GetTest)
 			test.POST("/create", h.CreateTest)
 			test.POST("/sendResults", h.SendResult)
 			test.OPTIONS("/sendResults", h.opt)
