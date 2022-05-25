@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="formated for cors">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93/storage_v2/_src_/database/ipk.JJgBAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/getters.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/getters.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/handler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +68,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="ipk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build ipk/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="ipk" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,6 +91,15 @@
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="ipk" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -136,6 +150,16 @@
           <url>file://$PROJECT_DIR$/pkg/repository/testPostgres.go</url>
           <line>52</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/repository/statPostgres.go</url>
+          <line>141</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/handler/test.go</url>
+          <line>65</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
