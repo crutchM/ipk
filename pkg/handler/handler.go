@@ -24,6 +24,8 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router.OPTIONS("/api/test/", h.opt)
 	router.OPTIONS("/api/test/sendStat", h.opt)
 	router.OPTIONS("/api/test/sendResults", h.opt)
+	router.OPTIONS("/getStat/:id", h.opt)
+	router.OPTIONS("/getIndividual/:id", h.opt)
 
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
@@ -63,7 +65,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		}
 		stat := api.Group("/stat")
 		{
-			stat.GET("/getStat", h.getStat)
+			stat.GET("/getStat/:id", h.getStat)
 			stat.GET("/getIndividual/:id", h.getStatByTeacher)
 		}
 	}

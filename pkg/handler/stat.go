@@ -4,21 +4,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"net/http"
+	"strconv"
 )
 
-type InputStruct struct {
-	Chair int `json:"chair"`
-}
-
 func (h *Handler) getStat(c *gin.Context) {
-	var input InputStruct
-	if err := c.BindJSON(&input); err != nil {
-		logrus.Error(err.Error())
-		newErrorResponse(c, http.StatusBadRequest, err.Error())
-		return
-	}
+	id, err := strconv.Atoi(c.Param("id"))
 	h.addHeaders(c)
-	res, err := h.services.StatInterface.GetStat(input.Chair)
+	res, err := h.services.StatInterface.GetStat(id)
 	if err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
