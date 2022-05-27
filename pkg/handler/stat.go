@@ -32,10 +32,19 @@ func (h *Handler) getStat(c *gin.Context) {
 	SendJSONResponse(c, "results", res)
 }
 
+type inpt struct {
+	Id string `json:"id"`
+}
+
 func (h *Handler) getStatByTeacher(c *gin.Context) {
-	id := c.Param("id")
-	h.addHeaders(c)
-	stat, err := h.services.GetStatByTeacher(id)
+	var input inpt
+	err := c.BindJSON(&input)
+	if err != nil {
+		logrus.Error(err.Error())
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+	stat, err := h.services.GetStatByTeacher(input.Id)
 	if err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
@@ -45,7 +54,6 @@ func (h *Handler) getStatByTeacher(c *gin.Context) {
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
-
-	c.JSON(http.StatusOK, stat)
+	SendJSONResponse(c, "results", stat)
 
 }

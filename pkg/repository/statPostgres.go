@@ -101,7 +101,7 @@ func (s StatPostgres) getEmployment(id int) (string, error) {
 
 func (s StatPostgres) getTeacher(id string) (data.User, error) {
 	var teacher data.User
-	err := s.db.Get(&teacher, "select fullname from users where id=$1", id)
+	err := s.db.Get(&teacher, "select id, fullname from users where id=$1", id)
 	if err != nil {
 		return data.User{}, err
 	}

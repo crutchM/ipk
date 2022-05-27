@@ -1,55 +1,176 @@
-func (s StatPostgres) formResponse(entries []stat.Stat) ([]stat.ResponseStat, error) {
-	var result []stat.ResponseStat
-	for _, v := range entries {
-		var item stat.ResponseStat
-		teacher, err := s.getTeacher(v.UserId)
-		if err != nil {
-			return nil, err
-		}
-		item.Teacher = teacher
-		emp, err := s.getEmployment(v.Employment)
-		if err != nil {
-			return nil, err
-		}
-		item.Employment = emp
+create table schema_migrations
+(
+    version bigint  not null
+        primary key,
+    dirty   boolean not null
+);
 
-	}
-}
+alter table schema_migrations
+    owner to postgres;
 
-func (s StatPostgres) getBlocks(tId string) ([]data.Block, error) {
-	var bIds []int
-	err := s.db.Select(&bIds, "SELECT block from stat where userI=$1", tId)
-	var blocks []data.Block
-	for _, v := range bIds {
-		var item data.Block
-		err = s.db.Get(&item, "select * from block where id=$1", v)
-		if err != nil {
-			return nil, err
-		}
-		ques, err := s.getQuestions(v)
-		if err != nil {
-			return nil, err
-		}
-		item.Questions = ques
-		blocks = append(blocks, item)
-	}
-	return blocks, nil
-}
+create table chairs
+(
+    id   serial
+        constraint chairs_pk
+            primary key,
+    name varchar(255)
+);
 
-func (s StatPostgres) getQuestions(bId int) ([]data.Question, error) {
-	var aIds []int
-	err := s.db.Select(&aIds, "select question from stat where block=$1", bId)
-	if err != nil {
-		return nil, err
-	}
-	var result []data.Question
-	for _, v := range aIds {
-		var item data.Question
-		err = s.db.Get(&item, "select * from question where id=$1", v)
-		var answer int
-		err = s.db.Get(&answer, "select answer from stat where ")
-	}
-}
+alter table chairs
+    owner to postgres;
+
+create table post
+(
+    id   serial
+        constraint post_pk
+            primary key,
+    name varchar(255)
+);
+
+alter table post
+    owner to postgres;
+
+create table users
+(
+    id       varchar(255) not null
+        constraint users_pk
+            primary key,
+    fullname varchar(255),
+    login    varchar(255),
+    chair    integer
+        references chairs,
+    post     integer
+        references post,
+    password varchar(255)
+);
+
+alter table users
+    owner to postgres;
+
+create table test
+(
+    id   serial
+        constraint test_pk
+            primary key,
+    name varchar(255)
+);
+
+alter table test
+    owner to postgres;
+
+create table block
+(
+    id   serial
+        constraint block_pk
+            primary key,
+    name varchar(255)
+);
+
+alter table block
+    owner to postgres;
+
+create table testblocks
+(
+    id       serial
+        constraint tb_pk
+            primary key,
+    test_id  integer
+        references test,
+    block_id integer
+        references block
+);
+
+alter table testblocks
+    owner to postgres;
+
+create table question
+(
+    id     serial
+        constraint question_pk
+            primary key,
+    number varchar(255),
+    text   varchar(1000),
+    answer integer
+);
+
+alter table question
+    owner to postgres;
+
+create table blockquestions
+(
+    id          serial
+        constraint bq_pk
+            primary key,
+    block_id    integer
+        references block,
+    question_id integer
+        references question
+);
+
+alter table blockquestions
+    owner to postgres;
+
+create table expert
+(
+    id   serial
+        constraint e_pk
+            primary key,
+    name varchar(255)
+);
+
+alter table expert
+    owner to postgres;
+
+create table lessontype
+(
+    id   serial
+        constraint lt_pk
+            primary key,
+    name varchar(255)
+);
+
+alter table lessontype
+    owner to postgres;
+
+create table stat
+(
+    id         serial
+        constraint s_pk
+            primary key,
+    useri      varchar(255)
+        references users,
+    post       integer
+        references post,
+    chair      integer
+        references chairs,
+    employment integer
+        references lessontype,
+    expert     integer
+        references expert,
+    lessondate date,
+    anketdate  date
+);
+
+alter table stat
+    owner to postgres;
+
+create table results
+(
+    id       serial
+        constraint r_pk
+            primary key,
+    test     integer
+        references stat,
+    block    integer
+        references block,
+    question integer
+        references question,
+    answer   integer
+);
+
+alter table results
+    owner to postgres;
 
 
 
+migrate -path ./schema -database 'postgres://postgres:22334455@localhost:5432/ipk?sslmode=disable' up

@@ -6,6 +6,7 @@ import (
 	"ipk/pkg/data"
 	"ipk/pkg/data/stat"
 	"net/http"
+	"time"
 )
 
 type Input struct {
@@ -83,14 +84,22 @@ func (h *Handler) SendResult(c *gin.Context) {
 	SendJSONResponse(c, "status", "success")
 }
 
+type myInput struct {
+	stat.Stat `json:"stat"`
+	Date      int `json:"date"`
+}
+
 func (h *Handler) SendStat(c *gin.Context) {
 	var input stat.Stat
-	if err := c.BindJSON(&input); err != nil {
+	var inp myInput
+	if err := c.BindJSON(&inp); err != nil {
 		logrus.Error(err.Error())
 		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
+	input = inp.Stat
 	h.addHeaders(c)
+	input.AnketDate = time.Now()
 	id, err := h.services.AddRow(input)
 	if err != nil {
 		logrus.Error(err.Error())
