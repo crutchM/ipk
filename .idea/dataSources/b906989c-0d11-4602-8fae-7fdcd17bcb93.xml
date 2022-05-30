@@ -11,9 +11,9 @@
 13753||10|c|G
 13753||10|C|G
 13753||10|T|G</Grants>
-      <IntrospectionStateNumber>1850</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1957</IntrospectionStateNumber>
       <ServerVersion>14.2</ServerVersion>
-      <StartupTime>1653380991</StartupTime>
+      <StartupTime>1653883890</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -807,7 +807,7 @@ false Zulu
 13388||10|C|G
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
-      <IntrospectionStateNumber>1851</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1958</IntrospectionStateNumber>
       <ObjectId>16628</ObjectId>
       <Relations>sequence|table|26343|26344|1
 sequence|table|26350|26351|1
@@ -4278,7 +4278,7 @@ sequence|table|26477|26478|1
     <schema id="267" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1851</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1958</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -7784,7 +7784,7 @@ sequence|table|26477|26478|1
     </table>
     <table id="535" parent="267" name="stat">
       <ObjectId>26446</ObjectId>
-      <StateNumber>1751</StateNumber>
+      <StateNumber>1955</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -8234,16 +8234,16 @@ sequence|table|26477|26478|1
       <TypeId>23</TypeId>
     </column>
     <column id="594" parent="535" name="lessondate">
-      <DataType>date|0s</DataType>
+      <DataType>varchar(500)|0s</DataType>
       <Position>7</Position>
-      <StateNumber>1751</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>1954</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <column id="595" parent="535" name="anketdate">
-      <DataType>date|0s</DataType>
+      <DataType>varchar(500)|0s</DataType>
       <Position>8</Position>
-      <StateNumber>1751</StateNumber>
-      <TypeId>1082</TypeId>
+      <StateNumber>1955</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <foreign-key id="596" parent="535" name="stat_useri_fkey">
       <ColNames>useri</ColNames>
@@ -8311,7 +8311,7 @@ sequence|table|26477|26478|1
       <CollationIds>0</CollationIds>
       <ObjectId>26450</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1751</StateNumber>
+      <StateNumber>1955</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>

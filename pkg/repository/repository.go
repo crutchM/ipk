@@ -27,6 +27,7 @@ type StatInterface interface {
 	GetStatByTeacher(id string) ([]stat.ResponseStat, error)
 	AddRow(stat stat.Stat) (int, error)
 	AddResult(result []data.Block, rowId int) error
+	RemoveUser(id string) error
 }
 
 type GetterInterface interface {

@@ -148,3 +148,26 @@ func (s StatPostgres) AddResult(result []data.Block, rowId int) error {
 	}
 	return nil
 }
+
+func (s StatPostgres) RemoveUser(id string) error {
+	var stats []int
+	err := s.db.Select(&stats, "select id from stat where useri=$1", id)
+	if err != nil {
+		return err
+	}
+	if stats == nil {
+		s.Remove(id)
+		return err
+	} else {
+		for _, v := range stats {
+			s.db.QueryRow("DELETE from results where test=$1", v)
+			s.db.QueryRow("DELETE from stat where id=$1", v)
+		}
+		s.Remove(id)
+	}
+	return nil
+}
+
+func (s StatPostgres) Remove(id string) {
+	s.db.QueryRow("delete from users where id=$1", id)
+}

@@ -19,7 +19,6 @@ import (
 // @Failure 500 {object} Error
 // @Router /auth/sign-up [post]
 func (h *Handler) signUp(c *gin.Context) {
-
 	var input data.User
 
 	if err := c.BindJSON(&input); err != nil {

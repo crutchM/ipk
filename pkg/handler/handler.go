@@ -17,6 +17,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 	router.OPTIONS("/", h.opt)
 	//просто options запросы чтобы cors на фронте не ругался
+	router.OPTIONS("/auth/sign-up", h.opt)
 	router.OPTIONS("/api/user/teachers", h.opt)
 	router.OPTIONS("/api/user/", h.opt)
 	router.OPTIONS("/api/user/experts", h.opt)
@@ -26,6 +27,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 	router.OPTIONS("/api/test/sendResults", h.opt)
 	router.OPTIONS("/api/stat/getStat", h.opt)
 	router.OPTIONS("/api/stat/getIndividual", h.opt)
+	router.OPTIONS("/api/stat/remove", h.opt)
 
 	//очевидно, группа запросов на авторизацию и регистрацию
 	auth := router.Group("/auth")
@@ -67,6 +69,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			stat.POST("/getStat", h.getStat)
 			stat.POST("/getIndividual", h.getStatByTeacher)
+			stat.POST("/remove", h.removeUser)
 		}
 	}
 

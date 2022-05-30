@@ -26,6 +26,10 @@ func (s StatService) AddResult(result []data.Block, rowId int) error {
 	return s.repo.AddResult(result, rowId)
 }
 
+func (s StatService) RemoveUser(id string) error {
+	return s.repo.RemoveUser(id)
+}
+
 func NewStatService(repo repository.StatInterface) *StatService {
 	return &StatService{repo: repo}
 }
