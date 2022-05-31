@@ -30,7 +30,7 @@ func (h *Handler) signUp(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Origin", "http://192.168.11.40:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "x-requested-with, Content-Type, origin, authorization, accept, x-access-token")
@@ -39,7 +39,7 @@ func (h *Handler) signUp(c *gin.Context) {
 	})
 }
 func (h *Handler) opt(c *gin.Context) {
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Origin", "http://192.168.11.40:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "authorization, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
@@ -49,7 +49,7 @@ func (h *Handler) opt(c *gin.Context) {
 }
 
 func (h *Handler) addHeaders(c *gin.Context) {
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Origin", "http://192.168.11.40:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
@@ -81,7 +81,7 @@ func (h *Handler) signIn(c *gin.Context) {
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 	}
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Origin", "http://192.168.11.40:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
@@ -90,7 +90,7 @@ func (h *Handler) signIn(c *gin.Context) {
 }
 
 func (h *Handler) getAll(c *gin.Context) {
-	c.Header("Access-Control-Allow-Origin", "http://localhost:3000")
+	c.Header("Access-Control-Allow-Origin", "http://192.168.11.40:3000")
 	c.Header("Access-Control-Allow-Credentials", "true")
 	c.Header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS")
 	c.Header("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
