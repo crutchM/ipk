@@ -5,11 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4d8f4b1-4fdb-42ea-98c3-0cdfdc27307c" name="Changes" comment="formated for cors">
+      <change afterPath="$PROJECT_DIR$/data/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repos/AuthRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repos/ChairRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repos/GetterRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repos/StatRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repos/TestRepo.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/services/AuthService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/services/ChairService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/services/GetterService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/services/StatService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/services/TestService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b906989c-0d11-4602-8fae-7fdcd17bcb93.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/getters.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/getters.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/stat.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/stat.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handler/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handler/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/Server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/Chair.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/Chair.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/Expert.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/Expert.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/lessonType.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/lessonType.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/mappers/testResultMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/mappers/testResultMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/stat/INdividualResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/stat/INdividualResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/stat/KafResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/stat/KafResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/stat/responseStat.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/stat/responseStat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/stat/stat.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/stat/stat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/data/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/chair.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/chair.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/getters.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/getters.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/stat.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/stat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handler/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/handler/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/GetterPostgtres.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/GetterPostgtres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/authpostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/authpostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/back.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/back.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/backup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/backup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/chairpostgress.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/chairpostgress.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/postgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/postgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/statPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/statPostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/repository/testPostgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/repository/testPostgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/chairService.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/chairService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/getterService.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/getterService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/statService.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/statService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/service/testService.go" beforeDir="false" afterPath="$PROJECT_DIR$/data/service/testService.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/go1.17.8" />
+  <component name="GOROOT" url="file:///usr/lib/go-1.18" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -48,23 +95,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="go.format.on.save.advertiser.fired" value="true" />
-    <property name="go.formatter.settings.were.checked" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/crutchm/Документы/ipk&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/domain" />
       <recent name="C:\Users\melehin_aa\GolandProjects\ipk\cmd" />
       <recent name="C:\Users\melehin_aa\GolandProjects\ipk\pkg\data\stat" />
       <recent name="C:\Users\melehin_aa\GolandProjects\ipk\pkg\data" />
@@ -72,14 +121,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="ipk" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build ipk/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="ipk" />
       <working_directory value="$PROJECT_DIR$" />
@@ -95,15 +136,6 @@
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/cmd/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="ipk" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -141,37 +173,32 @@
     <option name="LAST_COMMIT_MESSAGE" value="formated for cors" />
   </component>
   <component name="VgoProject">
-    <integration-enabled>true</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/data/stat/responseStat.go</url>
+          <url>file://$PROJECT_DIR$/domain/model/stat/responseStat.go</url>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/repository/statPostgres.go</url>
+          <url>file://$PROJECT_DIR$/data/repository/statPostgres.go</url>
           <line>47</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/handler/test.go</url>
+          <url>file://$PROJECT_DIR$/presentation/handler/test.go</url>
           <line>100</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/repository/GetterPostgtres.go</url>
+          <url>file://$PROJECT_DIR$/data/repository/GetterPostgtres.go</url>
           <line>12</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/handler/auth.go</url>
-          <line>21</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/handler/test.go</url>
+          <url>file://$PROJECT_DIR$/presentation/handler/test.go</url>
           <line>118</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>

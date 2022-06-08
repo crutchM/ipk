@@ -4,10 +4,9 @@ import (
 	_ "github.com/lib/pq"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"ipk"
-	"ipk/pkg/handler"
-	"ipk/pkg/repository"
-	"ipk/pkg/service"
+	repository2 "ipk/data/repository"
+	"ipk/data/service"
+	"ipk/presentation/handler"
 )
 
 // @Title Ipk VSOKO app
@@ -25,24 +24,16 @@ func main() {
 	if err := initConfig(); err != nil {
 		logrus.Fatal("error in config")
 	}
-	//db, err := repository.NewPostgresDb(repository.Config{
-	//	Host:     "localhost",
-	//	Port:     "5432",
-	//	Username: "postgres",
-	//	Password: "postgres",
-	//	DBName:   "postgres",
-	//	SSLMode:  "disable",
-	//})
-	db, err := repository.NewPostgresDb(repository.Config{
+	db, err := repository2.NewPostgresDb(repository2.Config{
 		ConnectionRow: viper.GetString("connectionRow"),
 	})
 	if err != nil {
 		logrus.Fatal(err.Error())
 	}
-	repos := repository.NewRepository(db)
+	repos := repository2.NewRepository(db)
 	services := service.NewService(repos)
 	hands := handler.NewHandler(services)
-	srv := new(ipk.Server)
+	srv := new(Server)
 	if err := srv.Run(viper.GetString("port"), hands.InitRoutes()); err != nil {
 		logrus.Fatal(err.Error())
 	}
